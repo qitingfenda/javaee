@@ -1,0 +1,27 @@
+JDK>JRE>JVM
+
+path环境变量：windows系统执行命令时要搜寻的路径。
+
+源文件(.java)————>字节码文件(.class)————>结果
+         javac.exe编译          java.ext运行
+
+编译的过程：编译以后，会生成一个或多个字节码文件，字节码文件名与类名相同
+
+java严格区分大小写
+windows不区分大小写
+
+文档注释：注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页形式体现的该程序的说明文档
+/**
+*/
+PS：该类被public所修饰
+
+javadoc *.java -encoding utf-8 -charset utf-8 -d 生成的文件夹名
+PS：
+    *.java表示所有java文件
+    -d后面写文件夹名
+    -encoding utf-8设置编码格式为utf-8
+    -charset utf-8设置编字符集为utf-8
+    命令顺序无影响
+
+在一个java源文件中可以声明多个class，但是，最多只能有一个类声明为public
+而且，声明为public的类的类名必须与源文件名相同。
