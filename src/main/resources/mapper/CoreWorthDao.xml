@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.base.easycode.aaa.dao.CoreWorthDao">
+
+    <resultMap type="com.base.easycode.aaa.entity.CoreWorth" id="CoreWorthMap">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="rowid" column="rowid" jdbcType="INTEGER"/>
+        <result property="wcooperativeGroupId" column="wcooperative_group_id" jdbcType="VARCHAR"/>
+        <result property="wcooperativeGroup" column="wcooperative_group" jdbcType="VARCHAR"/>
+        <result property="wsubmitManId" column="wsubmit_man_id" jdbcType="VARCHAR"/>
+        <result property="wsubmitManName" column="wsubmit_man_name" jdbcType="VARCHAR"/>
+        <result property="wsubmittedManId" column="wsubmitted_man_id" jdbcType="VARCHAR"/>
+        <result property="wsubmittedManName" column="wsubmitted_man_name" jdbcType="VARCHAR"/>
+        <result property="wsubmittedManDep" column="wsubmitted_man_dep" jdbcType="VARCHAR"/>
+        <result property="wsubmittedManDepName" column="wsubmitted_man_dep_name" jdbcType="VARCHAR"/>
+        <result property="wcoreValue" column="wcore_value" jdbcType="VARCHAR"/>
+        <result property="wcoreValueItem" column="wcore_value_item" jdbcType="VARCHAR"/>
+        <result property="wcoreValueBehavior" column="wcore_value_behavior" jdbcType="VARCHAR"/>
+        <result property="wsubmitScore" column="wsubmit_score" jdbcType="INTEGER"/>
+        <result property="wpermittedScore" column="wpermitted_score" jdbcType="INTEGER"/>
+        <result property="wcoreType" column="wcore_type" jdbcType="INTEGER"/>
+        <result property="wcoreCase" column="wcore_case" jdbcType="VARCHAR"/>
+        <result property="wcoreStatus" column="wcore_status" jdbcType="INTEGER"/>
+        <result property="wsubmitManJob" column="wsubmit_man_job" jdbcType="VARCHAR"/>
+        <result property="proPublish_Id" column="pro_publish__id" jdbcType="VARCHAR"/>
+        <result property="wbeautifyCase" column="wbeautify_case" jdbcType="VARCHAR"/>
+        <result property="wpushfineTime" column="wpushfine_time" jdbcType="TIMESTAMP"/>
+        <result property="wpushfineMan" column="wpushfine_man" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="isdel" column="isdel" jdbcType="INTEGER"/>
+        <result property="skey" column="skey" jdbcType="VARCHAR"/>
+        <result property="isdelPer" column="isdel_per" jdbcType="VARCHAR"/>
+        <result property="pcompany" column="pcompany" jdbcType="INTEGER"/>
+        <result property="businessId" column="business_id" jdbcType="VARCHAR"/>
+        <result property="businessTitle" column="business_title" jdbcType="VARCHAR"/>
+        <result property="businessType" column="business_type" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CoreWorthMap">
+        select
+          id, rowid, wcooperative_group_id, wcooperative_group, wsubmit_man_id, wsubmit_man_name, wsubmitted_man_id, wsubmitted_man_name, wsubmitted_man_dep, wsubmitted_man_dep_name, wcore_value, wcore_value_item, wcore_value_behavior, wsubmit_score, wpermitted_score, wcore_type, wcore_case, wcore_status, wsubmit_man_job, pro_publish__id, wbeautify_case, wpushfine_time, wpushfine_man, create_time, update_time, isdel, skey, isdel_per, pcompany, business_id, business_title, business_type
+        from oa.core_worth
+        where rowid = #{rowid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="CoreWorthMap">
+        select
+          id, rowid, wcooperative_group_id, wcooperative_group, wsubmit_man_id, wsubmit_man_name, wsubmitted_man_id, wsubmitted_man_name, wsubmitted_man_dep, wsubmitted_man_dep_name, wcore_value, wcore_value_item, wcore_value_behavior, wsubmit_score, wpermitted_score, wcore_type, wcore_case, wcore_status, wsubmit_man_job, pro_publish__id, wbeautify_case, wpushfine_time, wpushfine_man, create_time, update_time, isdel, skey, isdel_per, pcompany, business_id, business_title, business_type
+        from oa.core_worth
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="CoreWorthMap">
+        select
+        id, rowid, wcooperative_group_id, wcooperative_group, wsubmit_man_id, wsubmit_man_name, wsubmitted_man_id,
+        wsubmitted_man_name, wsubmitted_man_dep, wsubmitted_man_dep_name, wcore_value, wcore_value_item,
+        wcore_value_behavior, wsubmit_score, wpermitted_score, wcore_type, wcore_case, wcore_status, wsubmit_man_job,
+        pro_publish__id, wbeautify_case, wpushfine_time, wpushfine_man, create_time, update_time, isdel, skey,
+        isdel_per, pcompany, business_id, business_title, business_type
+        from oa.core_worth
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="rowid != null">
+                and rowid = #{rowid}
+            </if>
+            <if test="wcooperativeGroupId != null and wcooperativeGroupId != ''">
+                and wcooperative_group_id = #{wcooperativeGroupId}
+            </if>
+            <if test="wcooperativeGroup != null and wcooperativeGroup != ''">
+                and wcooperative_group = #{wcooperativeGroup}
+            </if>
+            <if test="wsubmitManId != null and wsubmitManId != ''">
+                and wsubmit_man_id = #{wsubmitManId}
+            </if>
+            <if test="wsubmitManName != null and wsubmitManName != ''">
+                and wsubmit_man_name = #{wsubmitManName}
+            </if>
+            <if test="wsubmittedManId != null and wsubmittedManId != ''">
+                and wsubmitted_man_id = #{wsubmittedManId}
+            </if>
+            <if test="wsubmittedManName != null and wsubmittedManName != ''">
+                and wsubmitted_man_name = #{wsubmittedManName}
+            </if>
+            <if test="wsubmittedManDep != null and wsubmittedManDep != ''">
+                and wsubmitted_man_dep = #{wsubmittedManDep}
+            </if>
+            <if test="wsubmittedManDepName != null and wsubmittedManDepName != ''">
+                and wsubmitted_man_dep_name = #{wsubmittedManDepName}
+            </if>
+            <if test="wcoreValue != null and wcoreValue != ''">
+                and wcore_value = #{wcoreValue}
+            </if>
+            <if test="wcoreValueItem != null and wcoreValueItem != ''">
+                and wcore_value_item = #{wcoreValueItem}
+            </if>
+            <if test="wcoreValueBehavior != null and wcoreValueBehavior != ''">
+                and wcore_value_behavior = #{wcoreValueBehavior}
+            </if>
+            <if test="wsubmitScore != null">
+                and wsubmit_score = #{wsubmitScore}
+            </if>
+            <if test="wpermittedScore != null">
+                and wpermitted_score = #{wpermittedScore}
+            </if>
+            <if test="wcoreType != null">
+                and wcore_type = #{wcoreType}
+            </if>
+            <if test="wcoreCase != null and wcoreCase != ''">
+                and wcore_case = #{wcoreCase}
+            </if>
+            <if test="wcoreStatus != null">
+                and wcore_status = #{wcoreStatus}
+            </if>
+            <if test="wsubmitManJob != null and wsubmitManJob != ''">
+                and wsubmit_man_job = #{wsubmitManJob}
+            </if>
+            <if test="proPublish_Id != null and proPublish_Id != ''">
+                and pro_publish__id = #{proPublish_Id}
+            </if>
+            <if test="wbeautifyCase != null and wbeautifyCase != ''">
+                and wbeautify_case = #{wbeautifyCase}
+            </if>
+            <if test="wpushfineTime != null">
+                and wpushfine_time = #{wpushfineTime}
+            </if>
+            <if test="wpushfineMan != null and wpushfineMan != ''">
+                and wpushfine_man = #{wpushfineMan}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="isdel != null">
+                and isdel = #{isdel}
+            </if>
+            <if test="skey != null and skey != ''">
+                and skey = #{skey}
+            </if>
+            <if test="isdelPer != null and isdelPer != ''">
+                and isdel_per = #{isdelPer}
+            </if>
+            <if test="pcompany != null">
+                and pcompany = #{pcompany}
+            </if>
+            <if test="businessId != null and businessId != ''">
+                and business_id = #{businessId}
+            </if>
+            <if test="businessTitle != null and businessTitle != ''">
+                and business_title = #{businessTitle}
+            </if>
+            <if test="businessType != null">
+                and business_type = #{businessType}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="rowid" useGeneratedKeys="true">
+        insert into oa.core_worth(id, wcooperative_group_id, wcooperative_group, wsubmit_man_id, wsubmit_man_name, wsubmitted_man_id, wsubmitted_man_name, wsubmitted_man_dep, wsubmitted_man_dep_name, wcore_value, wcore_value_item, wcore_value_behavior, wsubmit_score, wpermitted_score, wcore_type, wcore_case, wcore_status, wsubmit_man_job, pro_publish__id, wbeautify_case, wpushfine_time, wpushfine_man, create_time, update_time, isdel, skey, isdel_per, pcompany, business_id, business_title, business_type)
+        values (#{id}, #{wcooperativeGroupId}, #{wcooperativeGroup}, #{wsubmitManId}, #{wsubmitManName}, #{wsubmittedManId}, #{wsubmittedManName}, #{wsubmittedManDep}, #{wsubmittedManDepName}, #{wcoreValue}, #{wcoreValueItem}, #{wcoreValueBehavior}, #{wsubmitScore}, #{wpermittedScore}, #{wcoreType}, #{wcoreCase}, #{wcoreStatus}, #{wsubmitManJob}, #{proPublish_Id}, #{wbeautifyCase}, #{wpushfineTime}, #{wpushfineMan}, #{createTime}, #{updateTime}, #{isdel}, #{skey}, #{isdelPer}, #{pcompany}, #{businessId}, #{businessTitle}, #{businessType})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update oa.core_worth
+        <set>
+            <if test="id != null and id != ''">
+                id = #{id},
+            </if>
+            <if test="wcooperativeGroupId != null and wcooperativeGroupId != ''">
+                wcooperative_group_id = #{wcooperativeGroupId},
+            </if>
+            <if test="wcooperativeGroup != null and wcooperativeGroup != ''">
+                wcooperative_group = #{wcooperativeGroup},
+            </if>
+            <if test="wsubmitManId != null and wsubmitManId != ''">
+                wsubmit_man_id = #{wsubmitManId},
+            </if>
+            <if test="wsubmitManName != null and wsubmitManName != ''">
+                wsubmit_man_name = #{wsubmitManName},
+            </if>
+            <if test="wsubmittedManId != null and wsubmittedManId != ''">
+                wsubmitted_man_id = #{wsubmittedManId},
+            </if>
+            <if test="wsubmittedManName != null and wsubmittedManName != ''">
+                wsubmitted_man_name = #{wsubmittedManName},
+            </if>
+            <if test="wsubmittedManDep != null and wsubmittedManDep != ''">
+                wsubmitted_man_dep = #{wsubmittedManDep},
+            </if>
+            <if test="wsubmittedManDepName != null and wsubmittedManDepName != ''">
+                wsubmitted_man_dep_name = #{wsubmittedManDepName},
+            </if>
+            <if test="wcoreValue != null and wcoreValue != ''">
+                wcore_value = #{wcoreValue},
+            </if>
+            <if test="wcoreValueItem != null and wcoreValueItem != ''">
+                wcore_value_item = #{wcoreValueItem},
+            </if>
+            <if test="wcoreValueBehavior != null and wcoreValueBehavior != ''">
+                wcore_value_behavior = #{wcoreValueBehavior},
+            </if>
+            <if test="wsubmitScore != null">
+                wsubmit_score = #{wsubmitScore},
+            </if>
+            <if test="wpermittedScore != null">
+                wpermitted_score = #{wpermittedScore},
+            </if>
+            <if test="wcoreType != null">
+                wcore_type = #{wcoreType},
+            </if>
+            <if test="wcoreCase != null and wcoreCase != ''">
+                wcore_case = #{wcoreCase},
+            </if>
+            <if test="wcoreStatus != null">
+                wcore_status = #{wcoreStatus},
+            </if>
+            <if test="wsubmitManJob != null and wsubmitManJob != ''">
+                wsubmit_man_job = #{wsubmitManJob},
+            </if>
+            <if test="proPublish_Id != null and proPublish_Id != ''">
+                pro_publish__id = #{proPublish_Id},
+            </if>
+            <if test="wbeautifyCase != null and wbeautifyCase != ''">
+                wbeautify_case = #{wbeautifyCase},
+            </if>
+            <if test="wpushfineTime != null">
+                wpushfine_time = #{wpushfineTime},
+            </if>
+            <if test="wpushfineMan != null and wpushfineMan != ''">
+                wpushfine_man = #{wpushfineMan},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="isdel != null">
+                isdel = #{isdel},
+            </if>
+            <if test="skey != null and skey != ''">
+                skey = #{skey},
+            </if>
+            <if test="isdelPer != null and isdelPer != ''">
+                isdel_per = #{isdelPer},
+            </if>
+            <if test="pcompany != null">
+                pcompany = #{pcompany},
+            </if>
+            <if test="businessId != null and businessId != ''">
+                business_id = #{businessId},
+            </if>
+            <if test="businessTitle != null and businessTitle != ''">
+                business_title = #{businessTitle},
+            </if>
+            <if test="businessType != null">
+                business_type = #{businessType},
+            </if>
+        </set>
+        where rowid = #{rowid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from oa.core_worth where rowid = #{rowid}
+    </delete>
+
+</mapper>
