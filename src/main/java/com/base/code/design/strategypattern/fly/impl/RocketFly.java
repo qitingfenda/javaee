@@ -9,6 +9,6 @@ import com.base.code.design.strategypattern.fly.FlyBehavior;
 public class RocketFly implements FlyBehavior {
     @Override
     public void fly() {
-        System.out.println("i con fly like rocket...");
+        System.out.println("i can fly like rocket...");
     }
 }

@@ -7,8 +7,26 @@ package com.base.test;
 public class Test {
 
     @org.junit.Test
+    public void test03() {
+        long e = 7;
+        long n = 72;
+        long d = 1;
+
+        int num = 0;
+
+        while (num < 3) {
+            if ((d * e) % n == 1) {
+                num++;
+                System.out.println(d);
+            }
+            d++;
+        }
+
+    }
+
+    @org.junit.Test
     public void listNodeTest() {
-        System.out.print(null + "");
+//        System.out.println((572662311 * 15) % 72);
     }
 
     public void test(String str){

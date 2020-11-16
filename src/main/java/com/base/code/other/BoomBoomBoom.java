@@ -15,7 +15,6 @@ public class BoomBoomBoom {
     public static void main(String[] args) throws AWTException {
         // 定义要发送的话
         String sentence = "从前有座山,山里有座庙,庙里有个老和尚和小和尚,老和尚对小和尚说：";
-//        String sentence = "于玉娟是猪";
         // 创建Robot对象
 
         Robot robot = new Robot();

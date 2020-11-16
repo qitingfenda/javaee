@@ -1,6 +1,8 @@
 package com.base.code.other;
 
 
+import java.util.Arrays;
+
 /**
  * @author yhc
  * @date 2019-06-13 10:03
@@ -8,7 +10,26 @@ package com.base.code.other;
 public class Test01 {
 
     public static void main(String[] args) {
-        test03();
+        test04();
+    }
+
+    private static void test04() {
+        int[] source = new int[]{0, 1, 0, 3, 12};
+        for (int i = 0; i < source.length; i++) {
+            if (source[i] == 0) {
+                // 第二次循环，用于交换下一个不是0的元素
+                for (int j = i + 1; j < source.length; j++) {
+                    if (source[j] != 0) {
+                        // 交换位置
+                        int temp = source[i];
+                        source[i] = source[j];
+                        source[j] = temp;
+                        break;
+                    }
+                }
+            }
+        }
+        System.out.println(Arrays.toString(source));
     }
 
 
