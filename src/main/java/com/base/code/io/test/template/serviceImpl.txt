@@ -1,0 +1,21 @@
+package ${PACKAGE_NAME}.service.impl;
+
+import ${PACKAGE_NAME}.dao.${NAME}Dao;
+import ${PACKAGE_NAME}.service.${NAME}Service;
+import com.djcps.djbase.commons.base.BaseService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ * @author yhc
+ * @create ${NOW}
+ */
+@Service
+@Slf4j
+public class ${NAME}ServiceImpl extends BaseService implements ${NAME}Service {
+
+    @Autowired
+    private ${NAME}Dao ${name}Dao;
+
+}

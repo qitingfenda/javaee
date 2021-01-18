@@ -1,0 +1,12 @@
+package ${PACKAGE_NAME}.dao;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * @author yhc
+ * @create ${NOW}
+ */
+@Repository
+public interface ${NAME}Dao {
+
+}

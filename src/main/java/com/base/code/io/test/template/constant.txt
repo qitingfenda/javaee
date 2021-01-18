@@ -1,0 +1,15 @@
+package ${PACKAGE_NAME}.constant;
+
+
+/**
+ * @author yhc
+ * @create ${NOW}
+ */
+public interface ${NAME}Constant {
+
+	/**
+	 * 模块常量
+	 */
+	String MODULE_CODE = "";
+
+}

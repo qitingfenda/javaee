@@ -1,0 +1,9 @@
+package ${PACKAGE_NAME}.service;
+
+/**
+ * @author yhc
+ * @create ${NOW}
+ */
+public interface ${NAME}Service {
+
+}

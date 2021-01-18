@@ -1,0 +1,40 @@
+package ${PACKAGE_NAME}.msg;
+
+import com.djcps.framework.httpformat.message.MsgInterface;
+import ${PACKAGE_NAME}.constant.${NAME}Constant;
+
+/**
+ * @author yhc
+ * @create ${NOW}
+ */
+public enum ${NAME}Msg implements MsgInterface {
+    /**
+     * msg
+     */
+    ;
+
+    /**
+     * 代码code
+     */
+    private String code;
+    /**
+     * 信息内容
+     */
+    private String msg;
+
+    ${NAME}Msg(String code, String msg) {
+        this.code = "SYSTEMCODE" + ${NAME}Constant.MODULE_CODE + code;
+        this.msg = msg;
+    }
+
+    @Override
+    public String getCode() {
+        return code;
+    }
+
+    @Override
+    public String getMsg() {
+        return msg;
+    }
+
+}

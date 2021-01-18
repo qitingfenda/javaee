@@ -1,0 +1,19 @@
+package ${PACKAGE_NAME}.controller;
+
+import ${PACKAGE_NAME}.service.${NAME}Service;
+import com.djcps.djbase.commons.base.BaseController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @author yhc
+ * @create ${NOW}
+ */
+@RestController
+@RequestMapping(value = "${name}", produces = "application/json;charset=utf-8")
+public class ${NAME}Controller extends BaseController {
+
+    @Autowired
+    private ${NAME}Service ${name}Service;
+
+}
