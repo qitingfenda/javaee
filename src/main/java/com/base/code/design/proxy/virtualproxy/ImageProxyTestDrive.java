@@ -29,15 +29,15 @@ public class ImageProxyTestDrive {
 		menuBar.add(menu);
 		frame.setJMenuBar(menuBar);
 
-		for (Enumeration<String> e = albums.keys(); e.hasMoreElements();) {
-			String name = (String)e.nextElement();
-			JMenuItem menuItem = new JMenuItem(name);
-			menu.add(menuItem); 
-			menuItem.addActionListener(event -> {
-				imageComponent.setIcon(new ImageProxy(getAlbumUrl(event.getActionCommand())));
-				frame.repaint();
-			});
-		}
+//		for (Enumeration<String> e = albums.keys(); e.hasMoreElements();) {
+//			String name = (String)e.nextElement();
+//			JMenuItem menuItem = new JMenuItem(name);
+//			menu.add(menuItem);
+//			menuItem.addActionListener(event -> {
+//				imageComponent.setIcon(new ImageProxy(getAlbumUrl(event.getActionCommand())));
+//				frame.repaint();
+//			});
+//		}
 
 		// set up frame and menus
 
