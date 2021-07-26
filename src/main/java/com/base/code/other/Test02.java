@@ -1,6 +1,7 @@
 package com.base.code.other;
 
 import jdk.nashorn.internal.ir.ForNode;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -13,8 +14,45 @@ public class Test02 {
 
     public static void main(String[] args) {
 
-        ArrayList<ArrayList<Integer>> result = FindContinuousSequence(9);
+        int[] result = FindNumsAppearOnce(new int[]{3,6});
         System.out.println(result);
+    }
+
+    public static int[] FindNumsAppearOnce(int[] array) {
+        int[] result = new int[2];
+        int index = 0;
+        HashMap<Integer, Integer> map = new HashMap<>(array.length);
+        for (int i : array) {
+            Integer v = map.get(i);
+            if (v == null) {
+                map.put(i, 1);
+            } else {
+                map.put(i, ++v);
+            }
+        }
+        for (Integer key : map.keySet()) {
+            Integer value = map.get(key);
+            if (value == 1) {
+                result[index] = key;
+                if (index == 1) {
+                    break;
+                }
+                index++;
+            }
+        }
+        if (result[0] > result[1]) {
+            int temp = result[0];
+            result[0] = result[1];
+            result[1] = temp;
+        }
+        return result;
+    }
+
+    public static String LeftRotateString(String str, int n) {
+        if (str == null || str.isEmpty()) {
+            return str;
+        }
+        return str.substring(n, str.length()) + str.substring(0, n);
     }
 
     public static ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
