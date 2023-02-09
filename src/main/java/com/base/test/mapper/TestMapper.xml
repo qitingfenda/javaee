@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.base.test.dao.TestDao">
+    <resultMap id="BaseResultMap" type="com.base.test.model.po.TestPo">
+        <result column="id" jdbcType="CHAR" property="id"/>
+        <result column="skey" jdbcType="CHAR" property="skey" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="org_id" jdbcType="CHAR" property="orgId"/>
+        <result column="goal_month" jdbcType="CHAR" property="goalMonth"/>
+        <result column="assessment_date" jdbcType="VARCHAR" property="assessmentDate"/>
+        <result column="assessment_days" jdbcType="TINYINT" property="assessmentDays"/>
+        <result column="decompose_mark" jdbcType="TINYINT" property="decomposeMark"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, skey, create_time, org_id, goal_month,
+    assessment_date, assessment_days, decompose_mark
+    </sql>
+
+    <insert id="insert"></insert>
+
+    <update id="update"></update>
+
+    <update id="updateNotNull"></update>
+
+    <delete id="delById"></delete>
+
+    <select id="getById" resultMap="BaseResultMap"></select>
+</mapper>

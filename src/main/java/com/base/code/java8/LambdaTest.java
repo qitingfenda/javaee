@@ -3,12 +3,22 @@ package com.base.code.java8;
 import org.junit.Test;
 
 import java.util.Comparator;
+import java.util.function.IntBinaryOperator;
 
 /**
  * @author yhc
  * @create 2020-01-08 11:11
  */
 public class LambdaTest {
+
+    @Test
+    public void test03() {
+        IntBinaryOperator intBinaryOperator = ( a,  b) -> a + b;
+    }
+
+    interface MathOperation {
+        void operation(int a,int b);
+    }
 
     @Test
     public void test02() {

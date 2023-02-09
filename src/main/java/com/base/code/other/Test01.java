@@ -1,7 +1,9 @@
 package com.base.code.other;
 
 
+import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * @author yhc
@@ -10,7 +12,30 @@ import java.util.Arrays;
 public class Test01 {
 
     public static void main(String[] args) {
-        test04();
+//        test05();
+        BigDecimal b = new BigDecimal("0.00");
+        String s = b.toPlainString();
+        System.out.println(s);
+    }
+
+    private  static  int[] test05() {
+        int[] nums = new int[]{3,4,2};
+        int target = 6;
+
+        HashMap<Integer, Integer> hash = new HashMap<>(16);
+        for (int i = 0; i < nums.length; i++) {
+            if (hash.containsKey(nums[i]) && nums[i] * 2 == target) {
+                return new int[]{hash.get(nums[i]), i};
+            }
+            hash.put(nums[i], i);
+        }
+        for (int i = 0; i < nums.length; i++) {
+            Integer index = hash.get(target - nums[i]);
+            if (index !=null && index != i) {
+                return new int[]{i, index};
+            }
+        }
+        return null;
     }
 
     private static void test04() {

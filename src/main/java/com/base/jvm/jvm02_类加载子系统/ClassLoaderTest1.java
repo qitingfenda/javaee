@@ -1,7 +1,7 @@
 package com.base.jvm.jvm02_类加载子系统;
 
 import sun.misc.Launcher;
-import sun.security.ec.CurveDB;
+import sun.security.util.CurveDB;
 
 import java.net.URL;
 import java.security.Provider;

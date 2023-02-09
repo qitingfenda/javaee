@@ -1,9 +1,9 @@
 package com.base.code.other;
 
-import jdk.nashorn.internal.ir.ForNode;
+
 import org.junit.Test;
 
-import java.math.BigDecimal;
+import java.time.YearMonth;
 import java.util.*;
 
 /**
@@ -12,10 +12,134 @@ import java.util.*;
  */
 public class Test02 {
 
-    public static void main(String[] args) {
 
-        int[] result = FindNumsAppearOnce(new int[]{3,6});
-        System.out.println(result);
+    @Test
+    public void test04() {
+        int a = 2;
+        int b = 2;
+        int c = 3;
+        System.out.println(a == 1 && b == 2 || c == 3);
+    }
+
+    @Test
+    public void test03() {
+        String thisMonthFirstDay = YearMonth.now().atDay(1).toString();
+        System.out.println(thisMonthFirstDay);
+    }
+
+    public static void main(String[] args) {
+        int pageNo = 1;
+        int pageSize = 100;
+
+        int limitStart = (pageNo - 1) * pageSize;
+        int limitEnd = limitStart + pageSize;
+
+        // 客户数量
+        int customerTotal = 10;
+        // 订单数量
+        int orderTotal = 5;
+        // 线下订单数量
+        int offlineOrderTotal = 6;
+        // 产品数量
+        int productTotal = 7;
+
+        int total = customerTotal + orderTotal + offlineOrderTotal + productTotal;
+
+        if (customerTotal - limitEnd >= 0) {
+            System.out.println("查询customer,开始:" + limitStart + ",结束:" + limitEnd);
+            return;
+        } else {
+            if (limitStart - customerTotal < 0) {
+                System.out.println("查询customer,开始:" + limitStart + ",结束:" + customerTotal);
+            }
+            limitStart = limitStart - customerTotal < 0 ? 0 : limitStart - customerTotal;
+            limitEnd -= customerTotal;
+        }
+        if (orderTotal - limitEnd >= 0) {
+            System.out.println("查询order,开始:" + limitStart + ",结束:" + limitEnd);
+            return;
+        } else {
+            if (limitStart - orderTotal < 0) {
+                System.out.println("查询order,开始:" + limitStart + ",结束:" + orderTotal);
+            }
+            limitStart = limitStart - orderTotal < 0 ? 0 : limitStart - orderTotal;
+            limitEnd -= orderTotal;
+        }
+        if (offlineOrderTotal - limitEnd >= 0) {
+            System.out.println("查询offlineOrder,开始:" + limitStart + ",结束:" + limitEnd);
+            return;
+        } else {
+            if (limitStart - offlineOrderTotal < 0) {
+                System.out.println("查询offlineOrder,开始:" + limitStart + ",结束:" + offlineOrderTotal);
+            }
+            limitStart = limitStart - offlineOrderTotal < 0 ? 0 : limitStart - offlineOrderTotal;
+            limitEnd -= offlineOrderTotal;
+        }
+        if (productTotal - limitEnd >= 0) {
+            System.out.println("查询offlineOrder,开始:" + limitStart + ",结束:" + limitEnd);
+            return;
+        } else {
+            if (limitStart - productTotal < 0) {
+                System.out.println("查询product,开始:" + limitStart + ",结束:" + productTotal);
+            }
+            limitStart = limitStart - productTotal < 0 ? 0 : limitStart - productTotal;
+            limitEnd -= productTotal;
+        }
+
+        System.out.println("还剩：" + (limitEnd - limitStart));
+    }
+
+
+    public static String PrintMinNumber(int[] numbers) {
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+        for (int i = 0; i < numbers.length; i++) {
+            ArrayList<Integer> subList = new ArrayList<>();
+            int num = numbers[i];
+            int a = 1;
+            int b = (num / a) % 10;
+            while (b != 0) {
+                subList.add(b);
+                a *= 10;
+                b = (num / a) % 10;
+            }
+            Collections.reverse(subList);
+            list.add(subList);
+        }
+        for (ArrayList<Integer> integers : list) {
+
+        }
+        return null;
+    }
+
+    public static int GetNumberOfK(int[] array, int k) {
+        int result = 0;
+        for (int i : array) {
+            if (i == k) {
+                result++;
+            } else if (i > k) {
+                break;
+            }
+        }
+        return result;
+    }
+
+    public static int binarySearch(int[] arr, int key) {
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+        int min, mid, max;
+        min = 0;
+        max = arr.length - 1;
+        while (min <= max) {
+            mid = (min + max) / 2;
+            if (key > arr[mid]) {
+                min = mid - 1;
+            } else {
+                return mid;
+            }
+
+        }
+        return -1;
     }
 
     public static int[] FindNumsAppearOnce(int[] array) {
@@ -192,7 +316,7 @@ public class Test02 {
         ArrayList<Integer> result = new ArrayList<>();
         Integer product = null;
         Integer x = null;
-        HashMap<Integer, Integer> map = new HashMap(array.length);
+        HashMap<Integer, Integer> map = new HashMap<>(array.length);
         for (int i = 0; i < array.length; i++) {
             map.put(array[i], i);
         }

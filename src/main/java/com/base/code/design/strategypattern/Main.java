@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         Duck duck = new SuperDuck();
-//        duck.setFlyBehavior(new NoFly());
+        duck.setFlyBehavior(new NoFly());
         duck.fly();
     }
 
