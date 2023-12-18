@@ -6,7 +6,7 @@
 <mapper namespace="com.base.test.dao.TestDao">
     <resultMap id="BaseResultMap" type="com.base.test.model.po.TestPo">
         <result column="id" jdbcType="CHAR" property="id"/>
-        <result column="skey" jdbcType="CHAR" property="skey" />
+        <result column="skey" jdbcType="CHAR" property="skey"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="org_id" jdbcType="CHAR" property="orgId"/>
         <result column="goal_month" jdbcType="CHAR" property="goalMonth"/>
@@ -16,17 +16,34 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-    id, skey, create_time, org_id, goal_month,
-    assessment_date, assessment_days, decompose_mark
+        id,
+        skey,
+        create_time,
+        org_id,
+        goal_month,
+        assessment_date,
+        assessment_days,
+        decompose_mark
     </sql>
 
-    <insert id="insert"></insert>
+    <insert id="insert">
+    </insert>
 
-    <update id="update"></update>
+    <update id="update">
+    </update>
 
-    <update id="updateNotNull"></update>
+    <update id="updateNotNull">
+    </update>
 
-    <delete id="delById"></delete>
+    <delete id="delById">
+        update table
+        set isdel     = 1,
+            isdel_per = #{delPer}
+        where id = #{id}
+          and isdel = 0
+          and skey = #{companyId}
+    </delete>
 
-    <select id="getById" resultMap="BaseResultMap"></select>
+    <select id="getById" resultMap="BaseResultMap">
+    </select>
 </mapper>
