@@ -6,6 +6,7 @@ import com.base.test.service.TestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 供应商基础配置表(CrmSupplierConfig)表服务实现类
@@ -22,22 +23,25 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public TestPo getById(String id) {
-        return this.testDao.getById(id);
+        return testDao.getById(id);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void insert(TestPo testPo) {
-        this.testDao.insert(testPo);
+        testDao.insert(testPo);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void update(TestPo testPo) {
-        this.testDao.update(testPo);
+        testDao.update(testPo);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void updateNotNull(TestPo testPo) {
-        this.testDao.updateNotNull(testPo);
+        testDao.updateNotNull(testPo);
     }
 
     @Override
