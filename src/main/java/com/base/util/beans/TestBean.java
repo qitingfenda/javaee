@@ -1,11 +1,17 @@
 package com.base.util.beans;
 
-import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.YearMonth;
+import java.util.List;
 
 
 /**
@@ -14,46 +20,36 @@ import java.math.BigDecimal;
  */
 @Data
 public class TestBean {
-
-    @ApiModelProperty("抬头id")
-    private String titleId;
-
-    @ApiModelProperty("抬头名称")
-    @Size(max = 30,message = "抬头名最多输入30位")
-    @NotBlank(message = "抬头不能为空")
-    private String invoiceTitleName;
-
-    @ApiModelProperty("税号")
-    @Size(max = 30, message = "税号最多输入30位")
-    @NotBlank(message = "税号不能为空")
-    private String dutyParagraph;
-
-    @ApiModelProperty("地址")
-    @Size(max = 100,message = "地址最多输入100位")
-    @NotBlank(message = "地址不能为空")
-    private String registeredAddress;
-
-    @ApiModelProperty("电话")
-    @Size(max = 30,message = "电话最多输入30位")
-    @NotBlank(message = "电话不能为空")
-    private String phone;
-
-    @ApiModelProperty("开户行")
-    @NotBlank(message = "开户行不能为空")
-    @Size(max = 100,message = "开户行最多输入100位")
-    private String accountBank;
-
-    @ApiModelProperty("卡号")
-    @Size(max = 30,message = "账户最多输入30位")
-    @NotBlank(message = "卡号不能为空")
-    private String bankCard;
-
-    @ApiModelProperty("用户认证名")
+    /**
+     * 预测日期
+     */
+    private String predictDate;
+    /**
+     * 易单来客户id
+     */
+    private String infoId;
+    /**
+     * 易网客户id
+     */
+    private String customerId;
+    /**
+     * 客户名称
+     */
     private String customerName;
-
-    @ApiModelProperty("用户手机号")
-    private String customerPhone;
-
-    @ApiModelProperty("销货单位的id")
-    private String salesUnitId;
+    /**
+     * 预测下单时间(HH:mm前)
+     */
+    private String predictionTime;
+    /**
+     * 今日下单量(m²)
+     */
+    private BigDecimal todayOrderArea;
+    /**
+     * 预测偏差类型(今日无单:no_orders,订单流失:order_loss,有单未下:pending_orders,未反馈:no_feedback)
+     */
+    private String type;
+    /**
+     * 反馈记录
+     */
+    private String feedback;
 }

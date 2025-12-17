@@ -35,14 +35,14 @@
     <update id="updateNotNull">
     </update>
 
-    <delete id="delById">
+    <update id="delById">
         update table
         set isdel     = 1,
             isdel_per = #{delPer}
         where id = #{id}
           and isdel = 0
           and skey = #{companyId}
-    </delete>
+    </update>
 
     <select id="getById" resultMap="BaseResultMap">
     </select>
